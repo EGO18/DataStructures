@@ -31,6 +31,23 @@ void SLList::push_front(int val)
     list_size++;
 }
 
+void SLList::push_back(int val)
+{
+    if(empty ())
+    {
+        head = new SLLNode(val);
+    }
+    else
+    {
+        SLLNode* cur = head;
+        while (cur->next)
+        {
+            cur = cur->next;
+        }
+        cur->next = new SLLNode(val);
+    }
+}
+
 void SLList::print() const
 {
     std::cout << "{ ";
