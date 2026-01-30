@@ -20,7 +20,7 @@ class DLList
         // ~SLList();
 
         // unsigned size() const; // Returns the size of the list
-        // bool empty() const; // Returns true if list is empty
+        bool empty() const; // Returns true if list is empty
         void push_front(const T& val); // Insert the new node at the beginning
         void print() const; // Print the list
         // TODO
@@ -30,7 +30,7 @@ class DLList
         // void clear(); // Clear the list
 
         //TODO
-        // void pop_back(); // Remove the last element (node)
+        void pop_back(); // Remove the last element (node)
 
     private:
         DLLNode<T>* head;
