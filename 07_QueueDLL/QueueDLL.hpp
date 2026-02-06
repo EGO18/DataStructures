@@ -5,18 +5,16 @@
 template <typename T>
 class QueueDLL {
     public:
-        QueueDLL();
-        int length() const; // TODO
+        int size() const; // TODO
         bool empty() const;
-        bool full() const;
         void print() const;
         void clear(); // TODO
        
         void enqueue(const T& val);
-        const T& dequeue(); // Throws std::out_of_range exception
-        const T& front(); // Return the first element in the queue
+        T dequeue(); // Throws std::out_of_range exception
+        const T& front() const; // Return the first element in the queue
     private:
-        DLList<T>* data;
+        DLList<T> data;
 
 };
 #endif

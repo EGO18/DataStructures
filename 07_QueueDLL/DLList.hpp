@@ -31,7 +31,7 @@ class DLList
 
         //TODO
         void pop_back(); // Remove the last element (node)
-
+        const T& front() const;
     private:
         DLLNode<T>* head;
         DLLNode<T>* tail;
