@@ -9,6 +9,18 @@ class BTNode
         T data;
         BTNode<T> * left;
         BTNode<T> * right;
+    bool isLeaf() const
+    {
+        return !left && !right;
+    }
+    bool hasOneChild() const
+    {
+        return !isLeaf() && !hasTwoChildren();
+    }
+    bool hasTwoChildren() const
+    {
+        return left && right;
+    }
 };
 
 
