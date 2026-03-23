@@ -9,9 +9,17 @@ class MinHeap
         void insert(const T& val);
         void print() const;
 
+
+        T deleteMin();
+
     private:
         std::vector<T> data;
         void percolateUp();
+        void percolateDown();
+        int getLeftKidIndex(int i);
+        int getRightKidIndex(int i);
+        int getParentKidIndex(int i);
+        int getLastWithKidsIndex();
 };
 
 
