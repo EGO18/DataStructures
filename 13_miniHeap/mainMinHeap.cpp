@@ -2,23 +2,25 @@
 #include "MinHeap.cpp"
 #include<iostream>
 #include<cstdlib>
+#include<vector>
 
 int main ()
 {
     MinHeap<int> heap;
+    std::vector<int> v;
 
     for(int i = 0; i < 10; i++)
     {
-        heap.insert(rand() % 1000);
+        int num = rand() % 1000;
+        heap.insert(num);
+        v.push_back(num);
     }
+
+    MinHeap<int> heap2(v);
 
     heap.print();
-    for(int i = 0; i < 10; i++)
-    {
-        heap.deleteMin();
-        heap.print();
-        std::cout << "\n----------------\n";
-    }
+    std::cout << "\n----------\n";
+    heap2.print();
 
     return 0;
 }

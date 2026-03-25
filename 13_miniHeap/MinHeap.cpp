@@ -2,6 +2,32 @@
 #include <iostream>
 
 template<typename T>
+void heapSort(std::vector<T>& v)
+{
+    MinHeap<T> heap(v);
+
+    for(int i = 0; i < v.size(); i++)
+    {
+        v[i] = heap.deleteMin();
+    }
+}
+
+
+template<typename T>
+MinHeap<T>::MinHeap()
+{
+
+}
+
+template<typename T>
+MinHeap<T>::MinHeap(const std::vector<T>& v)
+{
+
+}
+
+
+
+template<typename T>
 void MinHeap<T>::insert(const T& val)
 {
     data.push_back(val);
@@ -81,9 +107,9 @@ T MinHeap<T>::deleteMin()
 }
 
 template<typename T>
-void MinHeap<T>::percolateDown()
+void MinHeap<T>::percolateDown(int i)
 {
-    int index = 0;
+    int index = i;
     int size = data.size();
 
     while(getLeftKidIndex(index) < size)
@@ -103,5 +129,14 @@ void MinHeap<T>::percolateDown()
         }
         std::swap(data[index], data[smallest]);
         index = smallest;
+    }
+}
+
+template<typename T>
+void MinHeap<T>::heapify()
+{
+    for(int i = getLastWithKidsIndex(); i >= 0; i--)
+    {
+        percolateDown(i);
     }
 }
