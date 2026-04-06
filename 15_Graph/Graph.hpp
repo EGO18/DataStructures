@@ -9,11 +9,18 @@ class Graph
         void insertVertex(const T& value);
         void insertEdge(const T& v1, const T& v2);
         void print() const;
+
+        void DFS() const;
+        void BFS(int start = 0) const;
+        int shortestPath(const T& src, const T& dest) const;
+        bool isConnected() const;
+
     private:
         std::vector<T> vertices;
         std::vector<std::vector<int>> edges;
 
         int getVertexIndex(const T& value) const;
+        void DFS(int i, std::vector<bool>& visited) const;
 };
 
 #include"Graph.tpp"
