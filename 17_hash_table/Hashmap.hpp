@@ -4,13 +4,29 @@
 #include<vector>
 
 template<typename K, typename V>
-class Hashmap
+class HashMap
 {
     public:
+        HashMap(int size = 31);
 
+        bool empty() const;
+        bool full() const;
+
+        void insert(const K& key, const V& value);
+        void print() const;
+        const V& search(const K& key) const;
     private:
         std::vector<HashNode<K, V>*> data;
         int n; // The size of the table
+
+        HashNode<K, V>* deleted;
+
+        int hash(const K& key) const;
+        
+        //TODO
+        int searchIndex(const K& key) const;
 };
+
+#include "Hashmap.tpp"
 
 #endif
